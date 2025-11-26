@@ -1,24 +1,23 @@
 
 
+import avatarImg from "../images/Avatar.png";
+import pencilImg from "../images/pencil_act_profile.png";
+import Header from "./Header/Header";
+
+
 function App() {
   return (<div className="page">
-    <header className="header">
-        <img
-          className="header__logo"
-          src="images/header_logo.png"
-          alt="Around US logo"
-        />
-    </header>
+     <Header />
     <main className="content">
         <div className="profile">
           <div className="profile__cont"><img
             className="profile__avatar"
-            src="./images/Avatar.jpg"
+            src={avatarImg}
             alt="foto de avatar"
           />
            <img
               className="profile__avatar-pencil"
-              src="./images/pencil_act_profile.png"
+              src={pencilImg}
               alt=" Editar avatar"
             />
           </div>
@@ -28,7 +27,7 @@ function App() {
                 <button className="button" id="edit-button">
                     <img
                       className="button__image"
-                      src="./images/pencil_button.png"
+                      src={pencilImg}
                       alt="button"
                     />
                 </button>
