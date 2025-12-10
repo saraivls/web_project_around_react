@@ -4,12 +4,16 @@
   }
   
   .popup {
-    position: relative;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     background-color: transparent;
-    border: none;
-    padding: 40px;
-    max-width: 430px;
-    width: 100%;
+    border: none;   
+    width: 100vw;
   }
   
   .popup__container {
@@ -86,7 +90,7 @@
     font-weight: 400;
     font-size: 14px;
     line-height: 17px;
-    color: #000000;
+    color: #fff;
     padding: 13.26px 0;
     
   }
@@ -141,11 +145,10 @@
   }
   
   .image-details {
-    min-height: 540px;
+        min-height: 740px;
     width: 100%;
     object-fit: cover;
-    aspect-ratio: 1;
-  }
+   }
   
   .popup-name {
     position: absolute;
@@ -198,8 +201,8 @@
     font-style: normal;
     max-width: 40px;
     width: 100%;
-    left: 92%;
-    bottom: 88%;
+    left: 100%;
+    bottom: 93%;
     color: #ffffff;
     background: none;
     cursor: pointer;
