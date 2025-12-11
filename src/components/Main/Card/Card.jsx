@@ -1,4 +1,4 @@
-import CardImage from "../Popup/CarImage/CardImage";
+import CardImage from "../Popup/CardImage/CardImage";
 
 const Card = (props) => {
     const {card, onClick} = props;
