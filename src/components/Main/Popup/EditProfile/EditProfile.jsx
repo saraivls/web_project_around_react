@@ -1,6 +1,6 @@
 const EditProfile = () => {
     return (
-        <form method="post" className="popup__form">
+        <form className="popup__form">
             <input
               type="text"
               id="name-profile"
@@ -25,7 +25,7 @@ const EditProfile = () => {
               required
             />
             <span className="popup__error" id="job-profile-error"></span>
-            <button type="submit" className="submit" id="save-button">
+            <button type="click" className="submit" id="save-button">
               <span className="submit__text">Guardar</span>
             </button>
           </form>  

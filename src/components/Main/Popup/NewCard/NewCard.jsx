@@ -1,6 +1,6 @@
 const NewCard = () => {
     return (
-        <form method="post" className="popup__form">
+        <form className="popup__form">
             <input
               name="card-title" 
               type="text"
@@ -23,7 +23,7 @@ const NewCard = () => {
               required
             />
             <span className="popup__error" id="card-url-error"></span>
-            <button type="submit" className="submit" id="save-card">
+            <button type="click" className="submit" id="save-card">
               <span className="submit__text">Crear</span>
             </button>
           </form>

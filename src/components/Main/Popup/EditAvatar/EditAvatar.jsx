@@ -1,6 +1,6 @@
 const EditAvatar = () => {
     return (
-       <form method="post" class="popup__form">
+       <form class="popup__form">
       <input
         type="url"
         id="avatar-link"
@@ -10,7 +10,7 @@ const EditAvatar = () => {
         required
       />
       <span className="popup__error" id="avatar-link-error"></span>
-      <button type="submit" className="submit" id="save-avatar">
+      <button type="click" className="submit" id="save-avatar">
         <span className="submit__text">Guardar</span>
       </button>
     </form>
