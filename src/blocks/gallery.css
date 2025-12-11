@@ -17,7 +17,7 @@
     grid-template-columns: repeat(3, minmax(282px, 1fr));
     gap: 20px;
     justify-items: center;
-    margin: 0 250px;
+    margin: 0 150px;
   }
   
   .card {
