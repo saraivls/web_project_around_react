@@ -1,4 +1,4 @@
-import CardImage from "../Popup/CardImage/CardImage";
+import CardImage from "../../Popup/CardImage/CardImage.jsx";
 
 const Card = (props) => {
     const {card, onClick} = props;
@@ -11,10 +11,7 @@ const Card = (props) => {
 
 return (
       <div className="card" id="card">
-          <img className="card__image" 
-          src={link} alt="" 
-          onClick={() => onClick(popupImage)}
-          />
+          <img className="card__image" src={link} alt="" onClick={() => onClick(popupImage)}/>
           <div className="card__elements">
           <button className="card__remove-button"></button>
           <p className="card__text">{name}</p>
