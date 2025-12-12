@@ -1,82 +1,122 @@
+import { useState } from "react";
+
 import avatarImg from "../../images/Avatar.png";
 import pencilImg from "../../images/pencil_act_profile.png";
 import plusImg from "../../images/sumar.png";
 import Card from "./Card/Card.jsx";
 
+import Popup from "../Popup/Popup.jsx";
+import EditProfile from "../Popup/EditProfile/EditProfile.jsx";
+import EditAvatar from "../Popup/EditAvatar/EditAvatar.jsx";
+import NewCard from "../Popup/NewCard/NewCard.jsx";
+
 
 const cards = [
   {
     isLiked: false,
-    _id: '5d1f0611d321eb4bdcd707dd',
-    name: 'Yosemite Valley',
-    link: 'https://practicum-content.s3.us-west-1.amazonaws.com/web-code/moved_yosemite.jpg',
-    owner: '5d1f0611d321eb4bdcd707dd',
-    createdAt: '2019-07-05T08:10:57.741Z',
+    _id: "5d1f0611d321eb4bdcd707dd",
+    name: "Yosemite Valley",
+    link: "https://practicum-content.s3.us-west-1.amazonaws.com/web-code/moved_yosemite.jpg",
+    owner: "5d1f0611d321eb4bdcd707dd",
+    createdAt: "2019-07-05T08:10:57.741Z",
   },
   {
     isLiked: false,
-    _id: '5d1f064ed321eb4bdcd707de',
-    name: 'Lake Louise',
-    link: 'https://practicum-content.s3.us-west-1.amazonaws.com/web-code/moved_lake-louise.jpg',
-    owner: '5d1f0611d321eb4bdcd707dd',
-    createdAt: '2019-07-05T08:11:58.324Z',
+    _id: "5d1f064ed321eb4bdcd707de",
+    name: "Lake Louise",
+    link: "https://practicum-content.s3.us-west-1.amazonaws.com/web-code/moved_lake-louise.jpg",
+    owner: "5d1f0611d321eb4bdcd707dd",
+    createdAt: "2019-07-05T08:11:58.324Z",
   },
-]; 
+];
 
+const Main = () => {
+  const [popup, setPopup] = useState(null);
 
-const Main = (props) => {   
-  const {
-    onClickEditProfile, 
-    onClickEditAvatar, 
-    onClickAddCard,
-    onClickCard} = props;
+  const editProfilePopup = { 
+    title: "Editar perfil", 
+    children: <EditProfile /> 
+  };
 
-    return (
-        <main className="content">
-        <div className="profile">
-          <div className="profile__cont" onClick= {onClickEditAvatar}><img
+  const editAvatarPopup = { 
+    title: "Editar avatar", 
+    children: <EditAvatar /> 
+  };
+
+  const newCardPopup = { 
+    title: "Nuevo lugar", 
+    children: <NewCard /> 
+  };
+
+  function handleOpenPopup(p) {
+    setPopup(p);
+  }
+
+  function handleClosePopup() {
+    setPopup(null);
+  }
+
+  return (
+    <main className="content">
+      <div className="profile">
+        <div 
+          className="profile__cont" 
+          onClick={() => handleOpenPopup(editAvatarPopup)}
+        >
+          <img
             className="profile__avatar"
             src={avatarImg}
             alt="foto de avatar"
           />
-           <img
-              className="profile__avatar-pencil"
-              src={pencilImg}
-              alt=" Editar avatar"   
-            />
-          </div>
-          <div className="profile__info">
-            <div className="profile__details">
-                <h1 className="profile__name">Jacques Cousteau</h1>
-                <button className="button" id="edit-button">
-                    <img
-                      className="button__image"
-                      src={pencilImg}
-                      alt="button"
-                      onClick= {onClickEditProfile}
-                    />
-                </button>
-            </div>
-            <p className="profile__text">Explorador</p>
-          </div>
-          <button className="add-button" id="add-card">
-            <img className="add-button__image" 
-            src={plusImg} 
-            alt="agregar tarjeta" 
-            onClick= {onClickAddCard}
-            />
-          </button>          
+          <img
+            className="profile__avatar-pencil"
+            src={pencilImg}
+            alt="Editar avatar"
+          />
         </div>
-        <section className="gallery">
-            <div className="gallery__cards">
-                    {cards.map((card) => (
-                      <Card key={card._id} card={card} onClick ={onClickCard}/>
-                    ))}                        
-            </div>
-        </section>
-      </main>
 
-    );
- };
+        <div className="profile__info">
+          <div className="profile__details">
+            <h1 className="profile__name">Jacques Cousteau</h1>
 
- export default Main;
+            <button className="button" id="edit-button">
+              <img
+                className="button__image"
+                src={pencilImg}
+                alt="Editar perfil"
+                onClick={() => handleOpenPopup(editProfilePopup)}
+              />
+            </button>
+          </div>
+
+          <p className="profile__text">Explorador</p>
+        </div>
+
+        <button className="add-button" id="add-card">
+          <img
+            className="add-button__image"
+            src={plusImg}
+            alt="Agregar tarjeta"
+            onClick={() => handleOpenPopup(newCardPopup)}
+          />
+        </button>
+      </div>
+
+      <section className="gallery">
+        <div className="gallery__cards">
+          {cards.map((card) => (
+            <Card key={card._id} card={card} onClick={handleOpenPopup} />
+          ))}
+        </div>
+      </section>
+
+      {popup && (
+        <Popup title={popup.title} onClose={handleClosePopup}>
+          {popup.children}
+        </Popup>
+      )}
+    </main>
+  );
+};
+
+export default Main;
