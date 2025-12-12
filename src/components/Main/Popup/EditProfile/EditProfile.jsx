@@ -1,10 +1,17 @@
+import { useState } from "react";
+
 const EditProfile = () => {
+ const [name, setName] = useState("");
+  const [about, setAbout] = useState("");
+
+
     return (
         <form className="popup__form">
             <input
               type="text"
               id="name-profile"
-              value=""
+              value={name}                           
+        onChange={(e) => setName(e.target.value)}
               name="name"
               placeholder="Jacques Cousteau"
               className="popup__input popup__input_name"
@@ -16,7 +23,8 @@ const EditProfile = () => {
             <input
               type="text"
               id="job-profile"
-              value=""
+              value={about}                           // <-- corregido
+        onChange={(e) => setAbout(e.target.value)}
               name="about"
               placeholder="Explorador"
               className="popup__input popup__input_description"
