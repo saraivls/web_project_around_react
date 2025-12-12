@@ -1,15 +1,12 @@
-
-
-
-import {useState} from "react";
+import { useState } from "react";
 import Footer from "./Footer/Footer";
 import Header from "./Header/Header";
 import Main from "./Main/Main";
-import EditAvatar from "./Main/Popup/EditAvatar/EditAvatar";
-import EditProfile from "./Main/Popup/EditProfile/EditProfile";
-import NewCard from "./Main/Popup/NewCard/NewCard";
-import Popup from "./Main/Popup/Popup";
 
+import EditAvatar from "./Popup/EditAvatar/EditAvatar";
+import EditProfile from "./Popup/EditProfile/EditProfile";
+import NewCard from "./Popup/NewCard/NewCard";
+import Popup from "./Popup/Popup";
 
 function App() {
   const [popup, setPopup] = useState(null)
