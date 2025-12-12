@@ -1,6 +1,6 @@
 const EditAvatar = () => {
     return (
-       <form class="popup__form">
+       <form className="popup__form">
       <input
         type="url"
         id="avatar-link"
